@@ -1,42 +1,31 @@
 <template>
   <div>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
-    <h1>hola</h1>
+    <CarruselVue />
+    <TypeProduct />
   </div>
 </template>
 
 <script>
+import CarruselVue from "@/components/Carruselvue.vue"
+import TypeProduct from "@/components/TypeProductCard.vue"
+import { mapActions } from 'vuex'
 export default {
-name:"HomeViews",
+  name: "HomeViews",
+  components:{
+    CarruselVue,
+    TypeProduct
+  },
+  methods:{
+    ...mapActions(['homeFetch'])
+  },
+  created(){
+    this.homeFetch()
+  }
 }
 </script>
 
 <style>
-body{
+body {
   background-color: #e8f2f1;
 }
 </style>
