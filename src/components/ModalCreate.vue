@@ -14,7 +14,7 @@
         <b-form-group id="email" label="E-mail" label-for="input-1">
           <b-form-input
             id="email"
-            ref="emailInput"
+            v-model="form.email"
             type="email"
             placeholder="introduzca el email"
             required
@@ -28,7 +28,7 @@
         >
           <b-form-input
             id="repitEmail"
-            ref="repeatEmailInput"
+            v-model="form.repiteEmail"
             type="email"
             placeholder="repetir"
             required
@@ -80,6 +80,10 @@ export default {
   name: "ModalCreate",
   data() {
     return {
+      form:{
+        email: "",
+        repiteEmail:"",
+      },
       show: true,
       selected: null,
       options: [
@@ -96,11 +100,12 @@ export default {
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      console.log(this.curso);
-      this.$refs["my-modal"].hide();
-
       const numeroRandom = Math.floor(Math.random() * 1000000);
-        this.$swal.fire({
+      console.log(this.form)
+      if(this.form.email !== this.form.repiteEmail){
+        this.$swal.fire('Los Emails deben ser iguales')
+      }else{
+          this.$swal.fire({
           title: "Gracias por comprar:",
           text: `Numero de compra N°:${numeroRandom}`,
           imageUrl:
@@ -109,6 +114,8 @@ export default {
           imageHeight: 200,
           imageAlt: "Custom image",
         });
+        this.$refs["my-modal"].hide();
+      }
     },
     onClose() {
       this.$refs["my-modal"].hide();

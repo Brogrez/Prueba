@@ -24,7 +24,7 @@
       </b-navbar-nav>
     </b-navbar>
 
-    <b-sidebar class="tamaño" id="my-sidebar" title="titulo pagina" shadow>
+    <b-sidebar class="tamaño" id="my-sidebar" title="DeTodito" shadow>
       <b-button-group vertical class="px-3 py-2">
         <router-link to="/" class="btn1">
           <b-button class="btn1 d-flex justify-content-start" 
